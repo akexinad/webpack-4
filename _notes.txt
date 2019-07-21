@@ -8,6 +8,14 @@ STARTING OFF
     3. Mode.
     4. PublicPath.
         - This tells webpack where all the generated files are located.
+        - In prod, the publicPath becomes the URL with a / at the end since is concatenates all the files together.
 
 - And in our package.json file we prep the build script.
 
+
+
+
+LOADERS
+=======
+
+- Rememeber that loaders have to be installed via npm
