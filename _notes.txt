@@ -18,4 +18,6 @@ STARTING OFF
 LOADERS
 =======
 
-- Rememeber that loaders have to be installed via npm
+- Rememeber that loaders have to be installed via npm.
+- NOTE that webpack loads the loaders from right to left.
+    - Start off with the more general loader and end with the most specific loader.

@@ -1,4 +1,4 @@
-import './hello-button.css';
+import './hello-button.scss';
 
 export default class HelloButton {
 

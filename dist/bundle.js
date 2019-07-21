@@ -109,8 +109,8 @@ Object(_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HelloButton; });
-/* harmony import */ var _hello_button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _hello_button_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_button_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hello_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _hello_button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_button_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
 class HelloButton {
@@ -164,7 +164,7 @@ if(false) {}
 
 exports = module.exports = __webpack_require__(4)(false);
 // Module
-exports.push([module.i, ".hello-button {\r\n    font-size: 20px;\r\n    padding: 2em 4em;\r\n    background: green;\r\n    color: white;\r\n    outline: none;\r\n}\r\n\r\n.hello-text {\r\n    color: green;\r\n    font-weight: bold;\r\n}", ""]);
+exports.push([module.i, ".hello-button {\n  font-size: 20px;\n  padding: 2em 4em;\n  background: green;\n  color: white;\n  outline: none; }\n\n.hello-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
 
 
 /***/ }),
