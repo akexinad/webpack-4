@@ -38,6 +38,17 @@ module.exports = {
                     // First it looks at sass, then converts it to css, then converts to style text in the html page.
                     'style-loader', 'css-loader', 'sass-loader'
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: '/node_modules/',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [ '@babel/env' ],
+                        plugins: [ 'transform-class-properties' ]
+                    }
+                }
             }
         ]
     }

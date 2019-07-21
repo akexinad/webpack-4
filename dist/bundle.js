@@ -94,12 +94,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 
 
-
-
-const helloButton = new _components_hello_button_helloButton_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
-
+var helloButton = new _components_hello_button_helloButton_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
 helloButton.render();
-
 Object(_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 /***/ }),
@@ -111,27 +107,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HelloButton; });
 /* harmony import */ var _hello_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _hello_button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_button_scss__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
-class HelloButton {
 
-    render() {
+var HelloButton =
+/*#__PURE__*/
+function () {
+  function HelloButton() {
+    _classCallCheck(this, HelloButton);
 
-        const btn = document.createElement('button');
-        btn.innerHTML = 'Hello';
-        btn.classList.add('hello-btn');
-        btn.onclick = () => {
+    this.btnCssClass = 'hello-btn';
+    this.txtCssClass = 'hello-text';
+  }
 
-            const para = document.createElement('p');
-            para.innerHTML = 'Button was clicked!';
-            para.classList.add('hello-text');
-            body.appendChild(para);
-        };
-        
-        const body = document.querySelector('body');
-        body.appendChild(btn);
-    }   
-}
+  _createClass(HelloButton, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var btn = document.createElement('button');
+      btn.innerHTML = 'Hello';
+      btn.classList.add(this.btnCssClass);
+
+      btn.onclick = function () {
+        var para = document.createElement('p');
+        para.innerHTML = 'Button was clicked!';
+        para.classList.add(_this.txtCssClass);
+        body.appendChild(para);
+      };
+
+      var body = document.querySelector('body');
+      body.appendChild(btn);
+    }
+  }]);
+
+  return HelloButton;
+}();
+
+
 
 /***/ }),
 /* 2 */
@@ -164,7 +182,7 @@ if(false) {}
 
 exports = module.exports = __webpack_require__(4)(false);
 // Module
-exports.push([module.i, ".hello-button {\n  font-size: 20px;\n  padding: 2em 4em;\n  background: green;\n  color: white;\n  outline: none; }\n\n.hello-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
+exports.push([module.i, ".hello-btn {\n  font-size: 20px;\n  padding: 2em 4em;\n  background: green;\n  color: white;\n  outline: none; }\n\n.hello-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
 
 
 /***/ }),
@@ -173,13 +191,13 @@ exports.push([module.i, ".hello-button {\n  font-size: 20px;\n  padding: 2em 4em
 
 "use strict";
 
-
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
 // eslint-disable-next-line func-names
+
 module.exports = function (useSourceMap) {
   var list = []; // return the list of modules as css string
 
@@ -671,7 +689,6 @@ function updateLink (link, options, obj) {
 /* 6 */
 /***/ (function(module, exports) {
 
-
 /**
  * When source maps are enabled, `style-loader` uses a link element with a data-uri to
  * embed the css on the page. This breaks all relative urls because now they are relative to a
@@ -684,83 +701,78 @@ function updateLink (link, options, obj) {
  * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
  *
  */
-
 module.exports = function (css) {
   // get current location
   var location = typeof window !== "undefined" && window.location;
 
   if (!location) {
     throw new Error("fixUrls requires window.location");
-  }
+  } // blank or null?
 
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
+
+  if (!css || typeof css !== "string") {
+    return css;
   }
 
   var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/"); // convert each url(...)
 
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
+  /*
+  This regular expression is just a way to recursively match brackets within
+  a string.
+  	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+     (  = Start a capturing group
+       (?:  = Start a non-capturing group
+           [^)(]  = Match anything that isn't a parentheses
+           |  = OR
+           \(  = Match a start parentheses
+               (?:  = Start another non-capturing groups
+                   [^)(]+  = Match anything that isn't a parentheses
+                   |  = OR
+                   \(  = Match a start parentheses
+                       [^)(]*  = Match anything that isn't a parentheses
+                   \)  = Match a end parentheses
+               )  = End Group
+               *\) = Match anything and then a close parens
+           )  = Close non-capturing group
+           *  = Match anything
+        )  = Close capturing group
+   \)  = Match a close parens
+  	 /gi  = Get all matches, not the first.  Be case insensitive.
+   */
 
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
+  var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function (fullMatch, origUrl) {
+    // strip quotes (if they exist)
+    var unquotedOrigUrl = origUrl.trim().replace(/^"(.*)"$/, function (o, $1) {
+      return $1;
+    }).replace(/^'(.*)'$/, function (o, $1) {
+      return $1;
+    }); // already a full url? no change
 
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+    if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+      return fullMatch;
+    } // convert the url to a full url
 
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
 
-		// convert the url to a full url
-		var newUrl;
+    var newUrl;
 
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
+    if (unquotedOrigUrl.indexOf("//") === 0) {
+      //TODO: should we add protocol?
+      newUrl = unquotedOrigUrl;
+    } else if (unquotedOrigUrl.indexOf("/") === 0) {
+      // path should be relative to the base url
+      newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+    } else {
+      // path should be relative to current directory
+      newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+    } // send back the fixed url(...)
 
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
 
-	// send back the fixed css
-	return fixedCss;
+    return "url(" + JSON.stringify(newUrl) + ")";
+  }); // send back the fixed css
+
+  return fixedCss;
 };
-
 
 /***/ }),
 /* 7 */
@@ -772,15 +784,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0__);
 
-
 function addImage() {
-    const img = document.createElement('img');
-    img.alt = 'Space Traveller Watch';
-    img.width = 500;
-    img.src = _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-    const body = document.querySelector('body');
-    body.appendChild(img);
+  var img = document.createElement('img');
+  img.alt = 'Space Traveller Watch';
+  img.width = 500;
+  img.src = _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0___default.a;
+  var body = document.querySelector('body');
+  body.appendChild(img);
 }
 
 /***/ }),
