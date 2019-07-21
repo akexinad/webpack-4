@@ -91,9 +91,12 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hello_world_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+
 
 
 Object(_hello_world_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 /***/ }),
 /* 1 */
@@ -106,6 +109,33 @@ function hello() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (hello);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addImage; });
+/* harmony import */ var _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function addImage() {
+    const img = document.createElement('img');
+    img.alt = 'Space Traveller Watch';
+    img.width = 500;
+    img.src = _space_traveller_jpg__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+    const body = document.querySelector('body');
+    body.appendChild(img);
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "0598b0cb18f7166d1ac2ce291dff1156.jpg";
 
 /***/ })
 /******/ ]);

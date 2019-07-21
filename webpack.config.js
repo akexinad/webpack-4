@@ -13,5 +13,17 @@ module.exports = {
         path: path.resolve(__dirname, './dist')
     },
     // 3. THE MODE
-    mode: 'none'
-}
+    mode: 'none',
+    module: {
+        rules:[
+            {
+                // test uses regex to check what file is supposed to be loaded.
+                test: /\.(png|jpg)$/,
+                // the loader that is needed to load that specific file type.
+                use: [
+                    'file-loader'
+                ]
+            }
+        ]
+    }
+};

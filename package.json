@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/akexinad/webpack-4#readme",
   "devDependencies": {
+    "file-loader": "^4.1.0",
     "lite-server": "^2.5.3",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6"
