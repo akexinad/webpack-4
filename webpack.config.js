@@ -10,7 +10,8 @@ module.exports = {
         filename: 'bundle.js',
         // inside...
         // NOTE
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        publicPath: 'dist/'
     },
     // 3. THE MODE
     mode: 'none',

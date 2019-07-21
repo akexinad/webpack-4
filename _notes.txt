@@ -1,11 +1,13 @@
 STARTING OFF
 ============
 
-- To begin, we need to create a webpack.config.js file and give three options:
-    1. Entry Point.
+- To begin, we need to create a webpack.config.js file and give four options:
+    1. Entry Point for all the files.
     2. Output.
         - NOTE: The output path folder has to be in absolute, not relative.
     3. Mode.
+    4. PublicPath.
+        - This tells webpack where all the generated files are located.
 
 - And in our package.json file we prep the build script.
 
