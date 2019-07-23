@@ -32,3 +32,4 @@ PLUGINS
 
 - Plugins are additional javascript files that do evertyhing that loaders cannot do.
 - Plugins can also modify how the bundles themsleves are created. For example, uglifyJSPlusgin takes the bundle.js and minimizes the contents to decrease the bundle size.
+- ALL PLUGINS SHOULD BE ONLY SAVED AS DEVLEOPMEMT DEPENDENCIES
