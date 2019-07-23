@@ -1,6 +1,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // We will need the basic options to begin with.
@@ -55,9 +56,18 @@ module.exports = {
         ]
     },
     plugins: [
+        // these pulgins minify your files.
         new TerserPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                // this means to remove all files together with sub-directories
+                // no matter how many nesting levels
+                '**/*',
+                path.join(process.cwd(), 'build/**/*')
+            ]
         })
     ]
 };
