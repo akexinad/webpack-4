@@ -9,7 +9,7 @@ module.exports = {
     // 2. THE OUTPUT FILE
     output: {
         // webpack will automatically create a...
-        filename: 'bundle.js',
+        filename: 'bundle.[contenthash].js',
         // inside...
         // NOTE
         path: path.resolve(__dirname, './dist'),
@@ -57,7 +57,7 @@ module.exports = {
     plugins: [
         new TerserPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'styles.css'
+            filename: 'styles.[contenthash].css'
         })
     ]
 };
