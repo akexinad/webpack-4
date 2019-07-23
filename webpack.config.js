@@ -55,6 +55,12 @@ module.exports = {
                         plugins: [ 'transform-class-properties' ]
                     }
                 }
+            },
+            {
+                test: /\.hbs$/,
+                use: {
+                    loader: 'handlebars-loader',
+                }
             }
         ]
     },
@@ -80,7 +86,9 @@ module.exports = {
             filename: 'subfolder/custom_filename.html',
             meta: {
                 viweport: 'width=device-width, initial-scale=1'
-            }
+            },
+            template: 'src/index.hbs',
+            description: 'this is a description'
         })
     ]
 };
