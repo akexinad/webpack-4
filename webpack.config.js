@@ -2,6 +2,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // We will need the basic options to begin with.
@@ -14,7 +15,9 @@ module.exports = {
         // inside...
         // NOTE
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'dist/'
+        // With the html webpack plugin the index.html file gets put in
+        // the dist folder
+        publicPath: ''
     },
     // 3. THE MODE
     mode: 'none',
@@ -61,6 +64,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
         }),
+        // This cleans up all your built files.
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
                 // this means to remove all files together with sub-directories
@@ -68,6 +72,8 @@ module.exports = {
                 '**/*',
                 path.join(process.cwd(), 'build/**/*')
             ]
-        })
+        }),
+        // This automatically updates your index.html file with the latest md5 hassh bundle and css file.
+        new HtmlWebpackPlugin()
     ]
 };
