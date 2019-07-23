@@ -17,7 +17,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         // With the html webpack plugin the index.html file gets put in
         // the dist folder
-        publicPath: ''
+        publicPath: '../'
     },
     // 3. THE MODE
     mode: 'none',
@@ -74,6 +74,13 @@ module.exports = {
             ]
         }),
         // This automatically updates your index.html file with the latest md5 hassh bundle and css file.
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            // custom options on what you want for your index.html file.
+            title: 'Webpack 4 tutorial',
+            filename: 'subfolder/custom_filename.html',
+            meta: {
+                viweport: 'width=device-width, initial-scale=1'
+            }
+        })
     ]
 };
