@@ -1,5 +1,4 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -20,7 +19,7 @@ module.exports = {
         publicPath: '../'
     },
     // 3. THE MODE
-    mode: 'development',
+    mode: 'production',
     module: {
         rules:[
             {
@@ -67,7 +66,7 @@ module.exports = {
     },
     plugins: [
         // these pulgins minify your files.
-        new TerserPlugin(),
+        // THE TERSER PLUGIN IS INCLUDED BY DEFAULT IN PROD MODE.
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
         }),

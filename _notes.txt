@@ -46,3 +46,11 @@ THE MODE OPTION
 - Remember to check webpack documentation for more information.
 
 - When debugging production code. It's better and easier to debug the same code in development mode so you can see exactly where the issue is since development mode uses source maps by default.
+
+
+
+
+PROD AND DEV MANAGEMENT
+=======================
+
+- Make to separate webpack config files as well as package.json scripts for dev and prod respectively.
