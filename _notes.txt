@@ -31,3 +31,18 @@ PLUGINS
 - Plugins are additional javascript files that do evertyhing that loaders cannot do.
 - Plugins can also modify how the bundles themsleves are created. For example, uglifyJSPlusgin takes the bundle.js and minimizes the contents to decrease the bundle size.
 - ALL PLUGINS SHOULD BE ONLY SAVED AS DEVLEOPMEMT DEPENDENCIES
+
+
+
+
+THE MODE OPTION
+===============
+
+- The option allows for certain built-in optimizations.
+- Mode can be set to:
+    - none.
+    - development.
+    - production.
+- Remember to check webpack documentation for more information.
+
+- When debugging production code. It's better and easier to debug the same code in development mode so you can see exactly where the issue is since development mode uses source maps by default.

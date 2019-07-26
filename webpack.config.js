@@ -20,7 +20,7 @@ module.exports = {
         publicPath: '../'
     },
     // 3. THE MODE
-    mode: 'none',
+    mode: 'development',
     module: {
         rules:[
             {
@@ -31,6 +31,7 @@ module.exports = {
                     'file-loader'
                 ]
             },
+
             {
                 test: /\.css$/,
                 use: [
