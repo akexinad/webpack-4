@@ -54,3 +54,13 @@ PROD AND DEV MANAGEMENT
 =======================
 
 - Make to separate webpack config files as well as package.json scripts for dev and prod respectively.
+
+
+
+
+CUSTOM OPTIONS FOR CODE SPLITTING
+=================================
+
+- If the dependncy is less than 30kb, webpack will not produce a separate vendor bundle file for it in the dist folder.
+- This is why you get a separate vendor bundle file when you use a dependency like lodash but not React.
+- This is where we will need custom configurations in order to tell webpack when to make this vendor file.

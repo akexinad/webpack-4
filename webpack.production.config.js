@@ -26,7 +26,9 @@ module.exports = {
     // When our componenents share common dependencies, we need to tell webpack to optimize these dependencies so they are not duplicated in the respective bundle files that are built and make the files too large.
     optimization: {
         splitChunks: {
-            chunks: "all"
+            chunks: "all",
+            minSize: 10000,
+            automaticNameDelimiter: '_'
         }
     },
     module: {
