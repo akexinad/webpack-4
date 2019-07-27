@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
 
 });
 
+// We need to tell express how to handle static files in the dist folder.
+// Making a seperate url for static files.
+app.use('/static', express.static(path.resolve(__dirname, '../dist')));
+
 app.listen(3000, () => {
 
     console.log(`Listening on http://localhost:3000/`);

@@ -8,7 +8,8 @@ module.exports = {
     output: {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: ''
+        // We add 'static' in the publicPath to tell express how to route the static files
+        publicPath: '/static/'
     },
     mode: 'production',
     optimization: {
