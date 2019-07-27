@@ -5,13 +5,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // We will need the basic options to begin with.
     // 1. THE ENTRY POINT
-    entry: './src/index.js',
+    entry: {
+        'hello': './src/hello.js',
+        'watch': './src/watch.js'
+    },
     // 2. THE OUTPUT FILE
     output: {
         // webpack will automatically create a...
         // We can remove content hashing in development since there is no need
         // to handle browser caching.
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         // inside...
         // NOTE
         path: path.resolve(__dirname, './dist'),
@@ -92,13 +95,19 @@ module.exports = {
         // This automatically updates your index.html file with the latest md5 hassh bundle and css file.
         new HtmlWebpackPlugin({
             // custom options on what you want for your index.html file.
-            title: 'Webpack 4 tutorial',
-            filename: 'index.html',
-            meta: {
-                viweport: 'width=device-width, initial-scale=1'
-            },
-            template: 'src/index.hbs',
-            description: 'this is a description'
+            title: 'HELLO WEBPACK',
+            // NOTE that chunks correspond to the entry point.
+            chunks: ['hello'],
+            filename: 'hello.html',
+            template: 'src/page-template.hbs',
+        }),
+        new HtmlWebpackPlugin({
+            // custom options on what you want for your index.html file.
+            title: 'LOOK AT THIS WATCH',
+            // NOTE that chunks correspond to the entry point.
+            chunks: ['watch'],
+            filename: 'watch.html',
+            template: 'src/page-template.hbs',
         })
     ]
 };
