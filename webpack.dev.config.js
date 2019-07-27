@@ -21,6 +21,9 @@ module.exports = {
     },
     // 3. THE MODE
     mode: 'development',
+
+    // CONFIG TO RUN OFF OF A DEV SERVER SO YOU DON'T HAVE TO KEEP REFRESHING.
+    // Remember to npm install webpack-dev-server
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         index: 'index.html',
