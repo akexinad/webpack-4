@@ -23,6 +23,12 @@ module.exports = {
     },
     // 3. THE MODE
     mode: 'production',
+    // When our componenents share common dependencies, we need to tell webpack to optimize these dependencies so they are not duplicated in the respective bundle files that are built and make the files too large.
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
+    },
     module: {
         rules:[
             {
@@ -86,7 +92,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             // custom options on what you want for your index.html file.
             filename: 'hello.html',
-            chunks: ['hello'],
+            // Specifying common dependencies that is in the vendors bundle file.
+            chunks: ['hello', 'vendors~hello~watch'],
             title: 'Hello World',
             description: 'this is a description for hello world',
             template: 'src/page-template.hbs'
@@ -94,7 +101,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             // custom options on what you want for your index.html file.
             filename: 'watch.html',
-            chunks: ['watch'],
+            chunks: ['watch', 'vendors~hello~watch'],
             title: 'Watches',
             description: 'this is a description for watches',
             template: 'src/page-template.hbs'

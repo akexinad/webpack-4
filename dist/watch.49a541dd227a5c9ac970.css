@@ -3,5 +3,6 @@ h1 {
 
 .watch-image {
   display: block;
-  height: auto; }
+  height: auto;
+  width: 500px; }
 

@@ -8,7 +8,6 @@ export default class WatchImage {
         const img = document.createElement('img');
 
         img.alt = 'Space Traveller Watch';
-        img.width = 500;
         img.src = SpaceTraveller;
         img.classList.add('watch-image');
 

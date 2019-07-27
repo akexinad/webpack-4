@@ -1,11 +1,11 @@
 import './heading.scss';
 
 export default class Heading {
-    render() {
+    render( pageName ) {
         const h1 = document.createElement('h1');
         const body = document.querySelector('body');
 
-        h1.innerHTML = 'This is webpack!!!';
+        h1.innerHTML = `This is webpack!!! This is the ${ pageName } page.`;
 
         body.appendChild(h1);
     }
