@@ -85,13 +85,19 @@ module.exports = {
         // This automatically updates your index.html file with the latest md5 hassh bundle and css file.
         new HtmlWebpackPlugin({
             // custom options on what you want for your index.html file.
-            title: 'Webpack 4 tutorial',
             filename: 'hello.html',
-            meta: {
-                viweport: 'width=device-width, initial-scale=1'
-            },
-            template: 'src/hello.hbs',
-            description: 'this is a description'
+            chunks: ['hello'],
+            title: 'Hello World',
+            description: 'this is a description for hello world',
+            template: 'src/page-template.hbs'
+        }),
+        new HtmlWebpackPlugin({
+            // custom options on what you want for your index.html file.
+            filename: 'watch.html',
+            chunks: ['watch'],
+            title: 'Watches',
+            description: 'this is a description for watches',
+            template: 'src/page-template.hbs'
         })
     ]
 };
