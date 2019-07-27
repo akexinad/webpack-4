@@ -17,10 +17,15 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         // With the html webpack plugin the index.html file gets put in
         // the dist folder
-        publicPath: '../'
+        publicPath: ''
     },
     // 3. THE MODE
     mode: 'development',
+    devServer: {
+        contentBase: path.resolve(__dirname, './dist'),
+        index: 'index.html',
+        port: 9000
+    },
     module: {
         rules:[
             {
@@ -85,7 +90,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             // custom options on what you want for your index.html file.
             title: 'Webpack 4 tutorial',
-            filename: 'subfolder/custom_filename.html',
+            filename: 'index.html',
             meta: {
                 viweport: 'width=device-width, initial-scale=1'
             },

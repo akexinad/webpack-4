@@ -15,5 +15,3 @@ if ( process.env.NODE_ENV === 'production' ) {
 } else if ( process.env.NODE_ENV === 'developent' ) {
     console.log('Development mode');   
 }
-
-helloButton.xMethod();
