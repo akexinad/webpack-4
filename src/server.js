@@ -4,19 +4,28 @@ const fs = require('fs');
 
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/hello', (req, res) => {
 
-    const pathToHtmlFile = path.resolve(__dirname, '../dist/index.html');
+    const pathToHtmlFile = path.resolve(__dirname, '../dist/hello.html');
 
     // In order to read the content of the html file, node requires utf-8 unicode format.
-    const content = fs.readFileSync(pathToHtmlFile, 'utf-8');
+    const contentFromHtmlFile = fs.readFileSync(pathToHtmlFile, 'utf-8');
 
-    res.send(content);
+    res.send(contentFromHtmlFile);
 
 });
 
-// We need to tell express how to handle static files in the dist folder.
-// Making a seperate url for static files.
+app.get('/watch', (req, res) => {
+
+    const pathToHtmlFile = path.resolve(__dirname, '../dist/watch.html');
+
+    // In order to read the content of the html file, node requires utf-8 unicode format.
+    const contentFromHtmlFile = fs.readFileSync(pathToHtmlFile, 'utf-8');
+
+    res.send(contentFromHtmlFile);
+
+});
+
 app.use('/static', express.static(path.resolve(__dirname, '../dist')));
 
 app.listen(3000, () => {
