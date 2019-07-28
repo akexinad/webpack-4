@@ -19,7 +19,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         // With the html webpack plugin the index.html file gets put in
         // the dist folder
-        publicPath: ''
+        publicPath: '/static/'
     },
     // 3. THE MODE
     mode: 'production',

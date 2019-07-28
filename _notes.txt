@@ -1,3 +1,11 @@
+NOTE ON SECTIONS FOLDER
+=======================
+
+- The sections 1 to 6 folder also contains example from last video from section 7 on rendering multiple html pages with express.
+
+
+
+
 STARTING OFF
 ============
 

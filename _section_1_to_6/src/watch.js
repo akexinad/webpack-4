@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Heading from './components/heading/heading.js';
 import WatchImage from './components/watch-image/watch-image.js';
 

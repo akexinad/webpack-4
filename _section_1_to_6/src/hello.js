@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HelloButton from './components/hello_button/helloButton.js';
 import Heading from './components/heading/heading.js';
 
